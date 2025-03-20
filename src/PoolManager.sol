@@ -188,6 +188,9 @@ contract PoolManager is IPoolManager, ProtocolFees, NoDelegateCall, ERC6909Claim
         noDelegateCall
         returns (BalanceDelta swapDelta)
     {
+        if (true) {
+            revert("some error");
+        }
         if (params.amountSpecified == 0) SwapAmountCannotBeZero.selector.revertWith();
         PoolId id = key.toId();
         Pool.State storage pool = _getPool(id);
